@@ -80,7 +80,7 @@ public class Pr0915_1 {
 		System.out.print("높이의 길이 : ");
 		altitude = scan.nextInt();
 		
-		// 넓이 출력
+		// 넓이 출력 (밑변 * 높이 / 2)
 		System.out.println("넓이 : " + (base * altitude / 2.0));
 	}
 }
