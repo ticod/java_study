@@ -25,8 +25,8 @@ public class Exam3 {
 		
 		System.out.println("500원\t: " + price/500 + "개");
 		System.out.println("100원\t: " + price%500/100 + "개");
-		System.out.println("50원\t: " + price%500%100/50 + "개");
-		System.out.println("10원\t: " + price%500%100%50/10 + "개");
-		System.out.println("1원\t: " + price%500%100%50%10/1 + "개");
+		System.out.println("50원\t: " + price%100/50 + "개");
+		System.out.println("10원\t: " + price%50/10 + "개");
+		System.out.println("1원\t: " + price%10/1 + "개");
 	}
 }
