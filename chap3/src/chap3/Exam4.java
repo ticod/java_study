@@ -10,6 +10,9 @@ public class Exam4 {
 		System.out.println("숫자를 입력하세요");
 		int num = scan.nextInt();
 		
-		System.out.println(((num == 0) ? "영 " : ((num > 0) ? "양수 " : "음수 ")) + "입니다");
+		String result = (num == 0) ? "영 " : ((num > 0) ? "양수 " : "음수 ");
+		System.out.println(result + "입니다");
+		result = (num % 2 == 0) ? "짝수" : "홀수";
+		System.out.println(num + "는 " + result + "입니다.");
 	}
 }
