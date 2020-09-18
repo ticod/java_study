@@ -25,18 +25,33 @@
 package p200917;
 
 public class Pr01 {
-    public static void main(String[] args) {
-        for(int k = 0; k <= 4; k+=4) {
-            for (int i = 2 + k; i <= 5 + k; i++) {
-                System.out.print(i + "단\t");
-            }
-            System.out.println();
-            for (int i = 2; i <= 9; i++) {
-                for (int j = 2 + k; j <= 5 + k; j++) {
-                    System.out.print(j + "*" + i + "=" + (i * j) + "\t");
-                }
-                System.out.println();
-            }
-        }
-    }
+	public static void main(String[] args) {
+		for (int k = 0; k <= 4; k += 4) {
+			for (int i = 2 + k; i <= 5 + k; i++) {
+				System.out.print(i + "단\t");
+			}
+			System.out.println();
+			for (int i = 2; i <= 9; i++) {
+				for (int j = 2 + k; j <= 5 + k; j++) {
+					System.out.print(j + "*" + i + "=" + (i * j) + "\t");
+				}
+				System.out.println();
+			}
+		}
+
+		// 선생님 풀이
+		for (int k = 2; k <= 9; k += 4) {
+			for (int i = 0; i < 4; i++) {
+				System.out.print((i + k) + "단\t");
+			}
+			System.out.println();
+			for (int j = 2; j <= 9; j++) {
+				for (int i = k; i < k + 4; i++) {
+					System.out.print(i + "*" + j + "=" + (i * j) + "\t");
+				}
+				System.out.println();
+			}
+			System.out.println();
+		}
+	}
 }
