@@ -63,6 +63,7 @@ public class Pr06 {
 		}
 		
 		// 반복문 하나로?
+		int half = height / 2;
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < height; j++) {
 				if(i + j >= height - 1 && i >= half && j <= i)
