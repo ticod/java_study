@@ -21,6 +21,7 @@ public class Pr03 {
 		Scanner scan = new Scanner(System.in);
 		int len = scan.nextInt();
 		
+		// *로 초기화
 		char[][] result = new char[len][len];
 		for(int i = 0; i < len; i++) {
 			for(int j = 0; j < len; j++) {
@@ -28,6 +29,7 @@ public class Pr03 {
 			}
 		}
 		
+		// 빈칸 찾아서 채우기
 		for(int i = 0; i < len / 2; i++) {
 			for(int j = i+1; j < len - i - 1; j++) {
 				result[j][i] = ' ';
@@ -35,6 +37,7 @@ public class Pr03 {
 			}
 		}
 		
+		// 출력
 		for(int i = 0; i < len; i++) {
 			for(int j = 0; j < len; j++) {
 				System.out.print(result[i][j]);

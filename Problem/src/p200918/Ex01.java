@@ -38,8 +38,89 @@
 4번 만에 맞추셨습니다. 게임을 종료합니다.*/
 package p200918;
 
+import java.util.Scanner;
+
 public class Ex01 {
 	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		final int MAXIMUM = 10;
+		int[] usrNumber = new int[4];
+		int[] comNumber = new int[4];
+		int count = 0;
+		String answer;
 		
+		// 초기화
+		int[] randomArr = new int[MAXIMUM];
+		for(int i = 0; i < MAXIMUM; i++) {
+			randomArr[i] = i;
+		}
+		for(int i = 0; i < 1000; i++) {
+			int a = (int)(Math.random() * MAXIMUM);
+			int b = (int)(Math.random() * MAXIMUM);
+			int tmp = randomArr[a];
+			randomArr[a] = randomArr[b];
+			randomArr[b] = tmp;
+		}
+		for(int i = 0; i < comNumber.length; i++) {
+			comNumber[i] = randomArr[i];
+		}
+		
+		// 테스트 답안 출력
+		for(int i = 0; i < 4; i++) {
+			System.out.print(comNumber[i]);
+		}
+		System.out.println();
+		
+		// 야구 게임 시작
+		while(true) {
+			int ball = 0, strike = 0;
+			
+			System.out.println("서로 다른 4자리 정수를 입력하세요");
+			answer = scan.next();
+			
+			// 입력값 검사
+			boolean check = false;
+			if(answer.length() != usrNumber.length) continue;
+			for(int i = 0; i < answer.length() - 1; i++) {
+				if(answer.charAt(i) < '0' || answer.charAt(i) > '9' || check) {
+					check = true;
+					break;
+				}
+				for(int j = i+1; j < answer.length(); j++) {
+					if(answer.charAt(i) == answer.charAt(j)) {
+						check = true;
+						break;
+					}
+				}
+			}
+			if(check) continue;
+			
+			// 숫자로 변환
+			for(int i = usrNumber.length - 1; i >= 0; i--) {
+				usrNumber[i] = (int)(answer.charAt(i) - '0');
+			}
+			
+			// 스트라이크, 볼 계산
+			for(int i = 0; i < usrNumber.length; i++) {
+				for(int j = 0; j < comNumber.length; j++) {
+					if(usrNumber[i] == comNumber[j]) {
+						if(i == j) {
+							strike++;
+						} else {
+							ball++;
+						}
+					}
+				}
+			}
+			
+			count++;
+			if(strike == usrNumber.length) {
+				break;
+			} else {
+				System.out.println(answer + ": " + strike + "스트라이크, " + ball + "볼");
+			}
+		}
+		System.out.println("정답입니다!");
+		System.out.println(count + "번 만에 맞추셨습니다. 게임을 종료합니다.");
 	}
 }

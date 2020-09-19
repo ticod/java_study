@@ -27,7 +27,7 @@ public class Pr06 {
 		
 		System.out.print(num1 + "과 " + num2 + "의 공약수: ");
 		for(int i = 0; i < index; i++) {
-			System.out.print(result[i] + ", ");
+			System.out.print(result[i] + ((i == index - 1) ? "" : ", "));
 		}
 	}
 }

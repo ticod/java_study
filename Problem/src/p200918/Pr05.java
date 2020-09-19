@@ -25,7 +25,7 @@ public class Pr05 {
 		
 		System.out.print(num + "의 약수: ");
 		for(int i = 0; i < index; i++) {
-			System.out.print(result[i] + ", ");
+			System.out.print(result[i] + ((i == index - 1) ? "" : ", "));
 		}
 	}
 }

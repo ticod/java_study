@@ -32,36 +32,64 @@ public class Pr04 {
 			}
 		}
 		
-		int maxNum = 0;
-		if(len == 1) {
-			maxNum = 1;
-		} else {
-			int tmpNum = len - 2;
-			while(tmpNum >= 0) {
-				maxNum += 2*tmpNum;
-				tmpNum -= 2;
+		// 1. 최대 숫자 구하고 거꾸로 나열
+//		int maxNum = 0;
+//		if(len == 1) {
+//			maxNum = 1;
+//		} else {
+//			int tmpNum = len - 2;
+//			while(tmpNum >= 0) {
+//				maxNum += 2*tmpNum;
+//				tmpNum -= 2;
+//			}
+//			maxNum = (len*len) - maxNum;
+//		}
+//		
+//		for (int i = 0; i <= len / 2; i++) {
+//			for (int j = 0; j < len - i; j++) {
+//				if (j < i)
+//					System.out.print("\t");
+//				else
+//					System.out.print(maxNum-- + "\t");
+//			}
+//			System.out.println();
+//		}
+//		for (int i = len / 2 + 1; i < len; i++) {
+//			for (int j = 0; j <= i; j++) {
+//				if (j >= len - i - 1)
+//					System.out.print(maxNum-- + "\t");
+//				else
+//					System.out.print("\t");
+//			}
+//			System.out.println();
+//		}
+		
+		// 2차원 배열 사용하기 (뒤에서부터 나열)
+		int num = 1;
+		for(int i = len-1; i > len/2; i--) {
+			for(int j = len - 1; j >= len - i - 1; j--) {
+				if(j > i) {
+					result[i][j] = "\t";
+				} else {
+					result[i][j] = (num++) + "\t";
+				}
 			}
-			maxNum = (len*len) - maxNum;
+		}
+		for(int i = len/2; i >= 0; i--) { // 가운데부터
+			for(int j = len - 1; j >= i; j--) {
+				if(j >= len - i) {
+					result[i][j] = "\t";
+				} else {
+					result[i][j] = (num++) + "\t";
+				}
+			}
 		}
 		
-		for (int i = 0; i <= len / 2; i++) {
-			for (int j = 0; j < len - i; j++) {
-				if (j < i)
-					System.out.print("\t");
-				else
-					System.out.print(maxNum-- + "\t");
+		for(int i = 0; i < len; i++) {
+			for(int j = 0; j < len; j++) {
+				System.out.print(result[i][j]);
 			}
 			System.out.println();
 		}
-		for (int i = len / 2 + 1; i < len; i++) {
-			for (int j = 0; j <= i; j++) {
-				if (j >= len - i - 1)
-					System.out.print(maxNum-- + "\t");
-				else
-					System.out.print("\t");
-			}
-			System.out.println();
-		}
-		// 2차원 배열 사용하기
 	}
 }
