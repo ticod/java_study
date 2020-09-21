@@ -82,7 +82,7 @@ public class MergeSort {
 	}
 
 	public static void merge(int[] a, int[] aux, int lo, int mi, int hi) {
-	    cout << "your code here" << endl;
+	    //cout << "your code here" << endl;
 
 	    int i = lo;
 	    int j = mi + 1;
@@ -92,11 +92,11 @@ public class MergeSort {
 	        else if (aux[j] < aux[i]) a[k] = aux[j++];     // B[j] <  A[i], take B[j]
 	        else                      a[k] = aux[i++];     // A[i] <= B[j], take A[i]
 	    }
-	    cout << "your code here" << endl;
+	    //cout << "your code here" << endl;
 	}
 
 	public static void mergeSort(int[] a, int[] aux, int N, int lo, int hi) {
-	    cout << "your code here" << endl;
+	    //cout << "your code here" << endl;
 	}
 
 	public static void mergeSort(int[] a, int N) {
