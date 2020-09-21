@@ -44,7 +44,12 @@ public class Pr04 {
 //			}
 //			maxNum = (len*len) - maxNum;
 //		}
-//		
+		
+		// 선생님 풀이 (최대 숫자 구하기)
+//		int sum = 0;
+//		for(int i = 1; i <= len; i+=2) sum += i;
+//		int maxNum = sum * 2 - 1;
+		
 //		for (int i = 0; i <= len / 2; i++) {
 //			for (int j = 0; j < len - i; j++) {
 //				if (j < i)

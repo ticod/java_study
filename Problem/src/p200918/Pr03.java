@@ -36,7 +36,7 @@ public class Pr03 {
 				result[j][i + (len-1) - (i * 2)] = ' ';
 			}
 		}
-		
+
 		// 출력
 		for(int i = 0; i < len; i++) {
 			for(int j = 0; j < len; j++) {
@@ -44,5 +44,26 @@ public class Pr03 {
 			}
 			System.out.println();
 		}
+		
+		// 선생님 풀이
+		char[][] matrix = new char[len][len];
+		for(int i = 0; i <= matrix.length/2; i++) {
+			for(int j = i; j < matrix.length-i; j++) {
+				matrix[i][j] = ' ';
+			}
+		}
+		for(int i = matrix.length/2+1; i < matrix.length; i++) {
+			for(int j = matrix.length - i - 1; j <= i; j++) {
+				matrix[i][j] = '*';
+			}
+		}
+
+		for(int i = 0; i < len; i++) {
+			for(int j = 0; j < len; j++) {
+				System.out.print(matrix[i][j]);
+			}
+			System.out.println();
+		}
+		
 	}
 }
