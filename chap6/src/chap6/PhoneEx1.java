@@ -26,6 +26,7 @@ public class PhoneEx1 {
 		Phone p1 = new Phone(); // Phone 객체 하나를 힙 영역에 생성, 초기화함. 이후 p1이 그 객체를 가리킴
 		// new Phone = 객체화, 인스턴스화
 		// 객체 = 실질적인 객체 / 인스턴스 = 실체 (메모리에 의해 할당되어 진 것)
+		
 		p1.color = "검정"; // p1이 가리키는 Phone 객체의 color값을 변경
 		p1.power = true;
 		p1.no = "01012345678";

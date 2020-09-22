@@ -54,6 +54,12 @@ class Wallet {
 
 	int[] coin = new int[6];
 	
+	void init(int cnt) {
+		for(int i = 0; i < 6; i++) {
+			coin[i] = cnt;
+		}
+	}
+	
 	Boolean calc(int price) {
 		for(int i = 0; i < 6; i++) {
 			int tmp = (price/KRW[i] > coin[i]) ? coin[i] : price/KRW[i];
@@ -75,11 +81,10 @@ public class Pr03 {
 		Scanner scan = new Scanner(System.in);
 		int price = scan.nextInt();
 		final int COUNT = 5;
+		// 5개인 경우 전체 금액보다 입력한 금액이 높은 경우만 계산이 불가하다.
 		
 		Wallet w = new Wallet();
-		for(int i = 0; i < 6; i++) {
-			w.coin[i] = COUNT;
-		}
+		w.init(COUNT);
 		System.out.println();
 		
 		if(!w.calc(price)) {
