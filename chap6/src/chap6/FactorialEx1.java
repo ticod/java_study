@@ -17,11 +17,12 @@ package chap6;
 //}
 
 public class FactorialEx1 {
-	public static void main(String[] args) {
+	public static void main(String[] args) { // 클래스 멤버
 		System.out.println("4! = " + factorial(4));
 	}
 
-	private static int factorial(int i) {
+	private static int factorial(int i) { // 클래스 멤버
+		// static이 없다면 메인 메서드에서 factorial 메서드 호출 불가능
 		return (i == 1) ? 1 : i * factorial(i-1);
 	}
 }
