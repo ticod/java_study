@@ -53,14 +53,14 @@ public class Pr3 {
 		int index = 0;
 		for(int i = 0; i < N/2; i++) {
 			for(int j = 0; j < N - i; j++) {
-				if(i > j) 	System.out.print("   ");
+				if(i > j) 	System.out.printf("%3c", ' ');
 				else		System.out.printf("%3d", arr[index++]);
 			}
 			System.out.println();
 		}
 		for(int i = N/2; i < N; i++) {
 			for(int j = 0; j <= i; j++) {
-				if(i + j < N - 1) 	System.out.print("   ");
+				if(i + j < N - 1) 	System.out.printf("%3c", ' ');
 				else				System.out.printf("%3d", arr[index++]);
 			}
 			System.out.println();
