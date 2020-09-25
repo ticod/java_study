@@ -94,33 +94,37 @@ package p200924;
 
 class Food {
 	int price, point;
-	Food(int price){
+
+	Food(int price) {
 		this.price = price;
-		this.point = price/10;
+		this.point = price / 10;
 	}
 }
 
 class Fruit extends Food {
 	double brix;
-	Fruit(int price, double brix){
+
+	Fruit(int price, double brix) {
 		super(price);
 		this.brix = brix;
 	}
 }
 
 class Apple extends Fruit {
-	Apple(int price, double brix){
+	Apple(int price, double brix) {
 		super(price, brix);
 	}
+
 	public String toString() {
 		return "사과";
 	}
 }
 
 class Peach extends Fruit {
-	Peach(int price, double brix){
+	Peach(int price, double brix) {
 		super(price, brix);
 	}
+
 	public String toString() {
 		return "복숭아";
 	}
@@ -128,25 +132,28 @@ class Peach extends Fruit {
 
 class Drink extends Food {
 	int ml;
-	Drink(int price, int ml){
+
+	Drink(int price, int ml) {
 		super(price);
 		this.ml = ml;
 	}
 }
 
 class Cock extends Drink {
-	Cock(int price, int ml){
+	Cock(int price, int ml) {
 		super(price, ml);
 	}
+
 	public String toString() {
 		return "콜라";
 	}
 }
 
 class Sidar extends Drink {
-	Sidar(int price, int ml){
+	Sidar(int price, int ml) {
 		super(price, ml);
 	}
+
 	public String toString() {
 		return "사이다";
 	}
@@ -154,25 +161,28 @@ class Sidar extends Drink {
 
 class Snack extends Food {
 	int gram;
-	Snack(int price, int gram){
+
+	Snack(int price, int gram) {
 		super(price);
 		this.gram = gram;
 	}
 }
 
 class Biscuit extends Snack {
-	Biscuit(int price, int gram){
+	Biscuit(int price, int gram) {
 		super(price, gram);
 	}
+
 	public String toString() {
 		return "비스킷";
 	}
 }
 
 class Cookie extends Snack {
-	Cookie(int price, int gram){
+	Cookie(int price, int gram) {
 		super(price, gram);
 	}
+
 	public String toString() {
 		return "쿠키";
 	}
@@ -180,76 +190,117 @@ class Cookie extends Snack {
 
 class Buyer2 {
 	int money = 10000, point, cnt;
-	Food[] cart = new Food[5];
-	
-	void buy(Food food){
-		if(food.price > this.money) {
+	Food[] cart = new Food[30];
+
+	void buy(Food food) {
+		if (food.price > this.money) {
 			System.out.println(food + "구입시 잔액 부족");
+			return;
 		} else {
 			this.money -= food.price;
 			this.point += food.point;
 			cart[cnt++] = food;
 			System.out.println(food + "를(을) " + food.price + "가격에 구입");
+			if (food instanceof Fruit) {
+				Fruit f = (Fruit) food;
+				System.out.println("과일의 당도: " + f.brix);
+			}
+			if (food instanceof Drink) {
+				Drink d = (Drink) food;
+				System.out.println("음료의 용량: " + d.ml);
+			}
+			if (food instanceof Snack) {
+				Snack s = (Snack) food;
+				System.out.println("과자의 무게: " + s.gram);
+			}
 		}
 	}
-	
+
 	void summary() {
-		// 잔액, 포인트 출력
-		System.out.println("고객 잔액: " + this.money);
-		System.out.println("고객 포인트: " + this.point);
-		
 		// 총 구매금액 출력
 		int sum = 0;
-		for(int i = 0; i < cnt; i++) {
+		for (int i = 0; i < cnt; i++) {
 			sum += cart[i].price;
 		}
 		System.out.println("총 구매금액: " + sum);
-		
+
 		// 구매 목록 출력
 		System.out.print("식품 구매 목록: ");
-		for(int i = 0; i < cnt; i++) {
-			System.out.print(cart[i] + ((i != cnt - 1)?", ":""));
+		for (int i = 0; i < cnt; i++) {
+			System.out.print(cart[i] + ((i != cnt - 1) ? ", " : ""));
 		}
 		System.out.println();
-		
+
 		// 카테고리 분류
 		int[] fruit = new int[cnt];
 		int[] drink = new int[cnt];
 		int[] snack = new int[cnt];
 		int f = 0, d = 0, s = 0;
 		int fruitSum = 0, drinkSum = 0, snackSum = 0;
-		
-		for(int i = 0; i < cnt; i++) {
-			if(cart[i] instanceof Fruit) {
+
+		for (int i = 0; i < cnt; i++) {
+			if (cart[i] instanceof Fruit) {
 				fruit[f++] = i;
 				fruitSum += cart[i].price;
-			} else if(cart[i] instanceof Drink) {
+			} else if (cart[i] instanceof Drink) {
 				drink[d++] = i;
 				drinkSum += cart[i].price;
-			} else if(cart[i] instanceof Snack) {
+			} else if (cart[i] instanceof Snack) {
 				snack[s++] = i;
 				snackSum += cart[i].price;
 			}
 		}
-		
+
 		// 카테고리별로 출력
 		System.out.print("과일 구매 금액: " + fruitSum + ", 구매목록: ");
-		for(int i = 0; i < f; i++) {
-			System.out.print(cart[fruit[i]] + ((i != f - 1)?", ":""));
+		for (int i = 0; i < f; i++) {
+			System.out.print(cart[fruit[i]] + ((i != f - 1) ? ", " : ""));
 		}
 		System.out.println();
-		
+
 		System.out.print("음료 구매 금액: " + drinkSum + ", 구매목록: ");
-		for(int i = 0; i < d; i++) {
-			System.out.print(cart[drink[i]] + ((i != d - 1)?", ":""));
+		for (int i = 0; i < d; i++) {
+			System.out.print(cart[drink[i]] + ((i != d - 1) ? ", " : ""));
 		}
 		System.out.println();
-		
+
 		System.out.print("과자 구매 금액: " + snackSum + ", 구매목록: ");
-		for(int i = 0; i < s; i++) {
-			System.out.print(cart[snack[i]] + ((i != s - 1)?", ":""));
+		for (int i = 0; i < s; i++) {
+			System.out.print(cart[snack[i]] + ((i != s - 1) ? ", " : ""));
 		}
 		System.out.println();
+	}
+
+	// 선생님 풀이
+	void summary(int a) {
+		int total = 0, ftot = 0, dtot = 0, stot = 0;
+		String list = "", flist = "", dlist = "", slist = "";
+
+		for (int i = 0; i < cnt; i++) {
+			total += cart[i].price;
+			list += cart[i] + ((i == cnt - 1) ? "" : ",");
+			if (cart[i] instanceof Fruit) {
+				ftot += cart[i].price;
+				flist += cart[i] + " ";
+			}
+			if (cart[i] instanceof Drink) {
+				dtot += cart[i].price;
+				dlist += cart[i] + " ";
+			}
+			if (cart[i] instanceof Snack) {
+				stot += cart[i].price;
+				slist += cart[i] + " ";
+			}
+		}
+
+		System.out.println("총 구매금액: " + total);
+		System.out.println("총 구매목록: " + list);
+		System.out.print("과일 구매금액: " + ftot);
+		System.out.println(", 과일 구매목록: " + flist);
+		System.out.print("음료 구매금액: " + dtot);
+		System.out.println(", 음료 구매목록: " + dlist);
+		System.out.print("과자 구매금액: " + stot);
+		System.out.println(", 과자 구매목록: " + slist);
 	}
 }
 
@@ -264,17 +315,17 @@ public class Pr1 {
 		Biscuit bis = new Biscuit(10000, 500);// 가격, 무게(gram)
 		Cookie cookie = new Cookie(500, 5000);// 가격, 무게(gram)
 		Buyer2 b = new Buyer2();
-		
+
 		b.buy(apple);
 		b.buy(peach);
 		b.buy(cock);
 		b.buy(sidar);
 		b.buy(bis);
 		b.buy(cookie);
-		
+
 		System.out.println("고객 잔액:" + b.money);
 		System.out.println("고객 포인트:" + b.point);
-		
-		b.summary();
+
+		b.summary(1);
 	}
 }

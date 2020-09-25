@@ -28,6 +28,11 @@ public class InstanceOfEx1 {
 			Child3 c = (Child3)p;
 			System.out.println(c.x);
 			// 출력 X
+			/*
+			 * 쉽게 말해 하나의 부모가 여러 자식을 가질 수 있기 때문에
+			 * 부모가 자식으로의 형변환은 불가능하다.
+			 * (크기도 자식이 더 크다.)
+			 */
 		}
 		if(p1 instanceof Parent3) {
 			System.out.println("p1 참조변수 객체는 Parent3 객체다");
