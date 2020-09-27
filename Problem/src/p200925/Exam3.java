@@ -24,7 +24,7 @@ public class Exam3 {
 		for(int i = 0; i < x.length; i++) {
 			for(int j = 0; j < x[i].length; j++) {
 				if((i+j) % 2 == 0) 	x[i][j] = '■';
-				else			x[i][j] = '□';
+				else				x[i][j] = '□';
 			}
 		}
 		

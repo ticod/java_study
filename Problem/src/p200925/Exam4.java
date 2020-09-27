@@ -13,32 +13,31 @@ import java.util.Scanner;
 
 public class Exam4 {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-//		int range = Integer.parseInt(args[0]);
-		int range = scan.nextInt();
+//		Scanner scan = new Scanner(System.in);
+//		int range = scan.nextInt();
+		int range = Integer.parseInt(args[0]);
 		int cnt = 0;
-		
-		boolean[] pri = new boolean[range+1];
-		for(int i = 1; i <= range; i++) {
+
+		boolean[] pri = new boolean[range + 1];
+		for (int i = 1; i <= range; i++) {
 			pri[i] = true;
 		}
-		
-		for(int i = 2; i*i <= range; i++) {
-			if(pri[i]) {
-				for(int j = i*i; j <= range; j+=i) {
+
+		for (int i = 2; i * i <= range; i++) {
+			if (pri[i]) {
+				for (int j = i * i; j <= range; j += i) {
 					pri[j] = false;
 				}
 			}
 		}
-		
-		String str = "1";
-		for(int i = 2; i <= range; i++) {
-			if(pri[i]) {
-				str += ("," + i);
+
+		for (int i = 1; i <= range; i++) {
+			if (pri[i]) {
+				System.out.print(((i == 1) ? "" : ",") + i);
 				cnt++;
 			}
 		}
-		System.out.println(str);
+		System.out.println();
 		System.out.println(range + "숫자까지 소수의 개수:" + cnt);
 	}
 }

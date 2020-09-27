@@ -93,14 +93,18 @@ public class Exam8 {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		
+		final int COL = 4;
+		final int ROW = 5;
+		
 		System.out.println("자리수를 입력하세요(1~10)");
 		int cnt = scan.nextInt();
 		System.out.println("0 부터 9까지 "+ cnt +"자리 숫자를 입력하세요");
 		String num = scan.next();
 //		int num = scan.nextInt();
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < ROW; i++) {
 			for(int j = 0; j < cnt; j++) {
-				for(int k = 0; k < 4; k++) {
+				for(int k = 0; k < COL; k++) {
 					System.out.printf(number[num.charAt(j)-'0'][i][k]);
 				}
 			}

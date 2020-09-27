@@ -18,7 +18,8 @@ package p200925;
 
 public class Exam2 {
 	public static void main(String[] args) {
-		char[][] x = new char[11][11];
+		final int ARRAY_LENGTH = 11;
+		char[][] x = new char[ARRAY_LENGTH][ARRAY_LENGTH];
 		for(int i = 0; i < x.length; i++) {
 			x[i][i] = 'X';
 			x[i][x.length-i-1] = 'X';
