@@ -13,8 +13,8 @@ public class ExceptionEx3 {
 	public static void main(String[] args) {
 		try {
 			String str = null;
-			System.out.println(str.charAt(1));
 			System.out.println(Integer.parseInt("abd"));
+			System.out.println(str.charAt(1));
 			System.out.println(10/0);
 			System.out.println(args[0]);
 		} catch (ArithmeticException e) {

@@ -1,5 +1,5 @@
 /*
- * 
+ * StringBuffer 메서드
  */
 package chap11;
 
