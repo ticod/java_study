@@ -69,5 +69,7 @@ public class StringEx2 {
 		// 해당 문자열을 기준으로 잘라서 배열에 넣음
 		String[] sarr = "홍길동,이몽룡,김삿갓".split(",");
 		for(String ss : sarr) System.out.println(ss);
+		
+		// contains
 	}
 }
