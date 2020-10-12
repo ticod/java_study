@@ -21,14 +21,18 @@ public class Test1 {
 		if(space < 0) {
 			return str.substring(0, len);
 		} else {
-			if(align == 0) {
-				return String.format("%s%"+space+"s", str, " ");
-			} else if (align == 1) {
-				int frontHalf = (int) Math.round(space / 2.0);
-				int half = space/2;
-				return String.format("%"+frontHalf+"s%s%"+half+"s", " ", str, " ");
-			} else {
-				return String.format("%"+space+"s%s", " ", str);
+			// 가독성을 위해 switch문 사용
+			switch (align) {
+				case 0:
+					return String.format("%s%"+space+"s", str, " ");
+				case 1:
+					int frontHalf = (int) Math.round(space / 2.0);
+					int half = space/2;
+					return String.format("%"+frontHalf+"s%s%"+half+"s", " ", str, " ");
+				case 2:
+					return String.format("%"+space+"s%s", " ", str);
+				default:
+					return "";
 			}
 		}
 	}
