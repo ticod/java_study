@@ -48,6 +48,8 @@ public class Test1 {
 			if (str.equals("q")) {
 				break;
 			}
+			// replace, matches를 이용한 풀이
+			// 
 			Pattern p = Pattern.compile(".*"+str+".*");
 			int matchCount = 0;
 			for (String phoneNumber : phoneNumberArr) {
@@ -58,6 +60,20 @@ public class Test1 {
 				}
 			}
 			if (matchCount == 0) {
+				System.out.println("찾는 번호가 없습니다.");
+			}
+			// m.find를 이용한 풀이 (선생님 풀이)
+			// -을 포함하여 검색은 X
+			Pattern p2 = Pattern.compile(str);
+			int matchCount2 = 0;
+			for (String phoneNumber : phoneNumberArr) {
+				Matcher m = p2.matcher(phoneNumber);
+				if (m.find()) {
+					System.out.println(phoneNumber);
+					matchCount2++;
+				}
+			}
+			if (matchCount2 == 0) {
 				System.out.println("찾는 번호가 없습니다.");
 			}
 		}
