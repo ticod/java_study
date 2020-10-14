@@ -50,7 +50,7 @@ public class RegularEx2 {
 				Matcher m = pattern.matcher(d);
 				if (m.matches()) {
 					System.out.print(p + ", ");
-				}
+				}-
 			}
 			System.out.println();
 		}
