@@ -24,6 +24,10 @@ public class Test1 {
 		List<Integer> list = new ArrayList<>();
 		int sum = 0;
 		
+		// 아래와 같이 선언 후, while문에서 처리해주는 방법도 있음
+//		int max = 0;
+//		int min = Integer.MAX_VALUE;
+		
 		System.out.println("자연수를 입력하세요(종료:0)");
 		while (true) {
 			int num = scan.nextInt();
@@ -42,7 +46,8 @@ public class Test1 {
 			int max = list.get(0);
 			int min = list.get(0);
 			for (Integer i : list) {
-				System.out.print(i + ((list.indexOf(i) == listSize-1) ? " = " : "+"));
+				System.out.print(i + ((list.indexOf(i) == listSize - 1) ? " = " : "+"));
+				// 중복시 오류
 				max = (max < i) ? i : max;
 				min = (min > i) ? i : min;
 			}
