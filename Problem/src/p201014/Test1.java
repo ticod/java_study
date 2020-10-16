@@ -41,12 +41,13 @@ public class Test1 {
 			sum += num;
 		}
 		
-		int listSize = list.size();
-		if(listSize > 0) {
+		// size라는 멤버 변수를 반환하기 때문에 굳이 변수로 뺄 필요 X
+//		int listSize = list.size(); 
+		if(list.size() > 0) {
 			int max = list.get(0);
 			int min = list.get(0);
 			for (Integer i : list) {
-				System.out.print(i + ((list.indexOf(i) == listSize - 1) ? " = " : "+"));
+				System.out.print(i + ((list.indexOf(i) == list.size() - 1) ? " = " : "+"));
 				// 중복시 오류
 				max = (max < i) ? i : max;
 				min = (min > i) ? i : min;

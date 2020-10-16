@@ -39,6 +39,7 @@ public class MathEx1 {
 		// round : 반올림
 		System.out.println("Math.round(5.4) = " + Math.round(5.4));
 		System.out.println("Math.round(5.5) = " + Math.round(5.5));
+		System.out.println("Math.round(5.5) = " + Math.round(5.5));
 		System.out.println();
 		
 		// random : 난수

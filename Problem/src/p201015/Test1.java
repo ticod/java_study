@@ -45,8 +45,12 @@ public class Test1 {
 		final int MIN_RANK = 3; // 3등까지
 		final int LOTTO_COUNT = MIN_RANK * (MIN_RANK + 1) / 2;
 		
-		for (int i = 0; i < LOTTO_COUNT; i++)
-			if(!lotto.add(random.nextInt(1000) + 1)) i--;
+		// 조건을 두번 비교할 필요 X
+//		for (int i = 0; i < LOTTO_COUNT; i++)
+//			if(!lotto.add(random.nextInt(1000) + 1)) i--;
+		while(lotto.size() < 6) {
+			lotto.add(random.nextInt(1000) + 1);
+		}
 		List<Integer> list = new ArrayList<>(lotto);
 		List<List<Integer>> rankList = new ArrayList<>();
 		for (int i = 0; i < MIN_RANK; i++) {
@@ -58,7 +62,7 @@ public class Test1 {
 		for (List<Integer> l : rankList) {
 			printLotto(l, MIN_RANK - idx++);
 		}
-
+		
 		System.out.println("*** 복권 추첨 결과 ***");
 		for (int i = MIN_RANK - 1; i >= 0; i--) {
 			System.out.println((MIN_RANK - i) + "등: " + rankList.get(i));
