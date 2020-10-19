@@ -35,7 +35,7 @@ public class Test1 {
 			}
 		}
 		scanner.close();
-
+		
 		System.out.println("set1:" + set);
 		Set<Integer> set2 = new TreeSet<>(Collections.reverseOrder());
 		set2.addAll(set);
