@@ -11,6 +11,11 @@
  */
 package chap12;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 class ThreadPriority extends Thread {
 	ThreadPriority(String name) {
 		this(name, Thread.NORM_PRIORITY);
