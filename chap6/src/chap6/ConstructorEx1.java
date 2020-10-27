@@ -37,6 +37,7 @@ public class ConstructorEx1 {
 //		(클래스 명) (참조변수 명) = new (생성자);
 		/*
 		 * new 예약어 기능
+		 * 
 		 * 1. 메모리 할당 (힙 영역)
 		 * 2. 기본값 초기화, 명시적 초기화 (ex. int a = 10)
 		 * 		숫자: 0, 논리: false, 참조: null
