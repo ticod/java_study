@@ -50,9 +50,9 @@ public class Test2 {
 				maxOrMin((t, f) -> (t <= f) ? t : f, (t) -> t % 2 != 0));
 		System.out.println("짝수 최소값:" + 
 				maxOrMin((t, f) -> (t <= f) ? t : f, (t) -> t % 2 == 0));
+		System.out.println();
 		
 		/* Use Stream */
-		System.out.println();
 		System.out.println("홀수 최대값:" + 
 				maxOrMinStream((t, f) -> (t >= f) ? t : f, (t) -> t % 2 != 0));
 		System.out.println("짝수 최대값:" + 
@@ -61,6 +61,13 @@ public class Test2 {
 				maxOrMinStream((t, f) -> (t <= f) ? t : f, (t) -> t % 2 != 0));
 		System.out.println("짝수 최소값:" + 
 				maxOrMinStream((t, f) -> (t <= f) ? t : f, (t) -> t % 2 == 0));
+		System.out.println();
+		
+		/* 전체 최대값, 최소값 */
+		System.out.println("최대값:" + 
+				maxOrMin((t, f) -> (t >= f) ? t : f, (t) -> true));
+		System.out.println("최소값:" + 
+				maxOrMin((t, f) -> (t <= f) ? t : f, (t) -> true));
 	}
 
 	private static int maxOrMin(IntBinaryOperator op, IntPredicate p) {
