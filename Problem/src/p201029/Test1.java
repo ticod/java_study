@@ -35,5 +35,13 @@ public class Test1 {
 				Arrays.stream(arr)
 					.filter(primeFilter)
 					.count());
+		
+		// forEach() : 최종 단계 반복자 - 반환 값이 void
+		// peek() : 중간 단계 반복자 - 반환 값이 IntStream
+		System.out.print("소수 목록 : ");
+		long count = Arrays.stream(arr)
+				.filter(primeFilter)
+				.peek(s -> System.out.print(s + " ")).count();
+		System.out.println("\n소수의 갯수: " + count);
 	}
 }
