@@ -6,7 +6,6 @@
 총 문자열 길이의 합:30 */
 package p201030;
 
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Test4 {
@@ -17,10 +16,9 @@ public class Test4 {
 				new String[]{"서울특별시", "금천구", "가산동","대륭테크노타운 3차"}
 		);
 		
-		int sum = strArrStrm.flatMap(arr -> Stream.of(arr)
-												.collect(Collectors.toList())
-												.stream())
-							.mapToInt(s -> s.length()).sum();
+		int sum = strArrStrm.flatMap(arr -> Stream.of(arr))
+							.mapToInt(s -> s.length())
+							.sum();
 		
 		System.out.println("총 문자열 길이의 합: " + sum);
 	}
