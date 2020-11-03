@@ -15,7 +15,8 @@ public class Test2 {
 			byte[] buf = new byte[fis.available()];
 			int data = 0;
 			while ((data = fis.read(buf)) != -1) {
-				System.out.print(new String(buf, 0, data));
+//				System.out.print(new String(buf, 0, data));
+				System.out.print(new String(buf));
 			}
 		} catch (IOException e) {
 			System.out.println("해당 파일 없음");
