@@ -40,7 +40,8 @@ public class Test1 {
 			}
 			try {
 				fis = new FileInputStream(file);
-				newFile = file.split("\\.")[0] + ".bak";
+				int lastDot = file.lastIndexOf(".");
+				newFile = (lastDot > 0) ? file.substring(0, lastDot) + ".bak" : file + ".bak";
 				fos = new FileOutputStream(newFile);
 				while (fis.read(buf) != -1) {
 					fos.write(buf);
@@ -51,6 +52,8 @@ public class Test1 {
 			}
 		}
 		System.out.println("종료");
+		if (fis != null) fis.close();
+		if (fos != null) fos.close();
 		scanner.close();
 	}
 }

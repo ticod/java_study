@@ -20,13 +20,12 @@ public class Test2 {
 		String file = "../chap18/bin/chap18/PrintStreamEx1.class";
 		FileInputStream fis = new FileInputStream(file);
 		int data = 0;
-		short lfCount = (short)(1 << (15));
+		int lfCount = 1 << (15);
 		while ((data = fis.read()) != -1) {
-			System.out.printf("%02X ", data);
-			if ((lfCount >>>= 1) == -1) {
-				System.out.println();
-				lfCount = (short)(1 << (15));
+			for (lfCount = (1 << 15); lfCount != -1; lfCount >>= 1) {
+				System.out.printf("%02X ", data);
 			}
+			System.out.println();
 		}
 	}
 }
