@@ -8,7 +8,7 @@
  *     InetAddress   getByAddress(byte[]) : byte[] - ip주소
  *     InetAddress   getLocalHost()
  */
-package chap18;
+package network;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

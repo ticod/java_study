@@ -19,7 +19,7 @@ public class Test2 {
 		
 		String[] fileList = f.list();
 		for (String fileName : fileList) {
-			if (fileName.contains("InputStream")) {
+			if (fileName.contains("InputStream") && fileName.endsWith(".java")) {
 				fbr = new BufferedReader(new FileReader(filePath + fileName));
 				pw.println("\n\n************" + fileName + "************\n\n");
 				String dataline = null;
