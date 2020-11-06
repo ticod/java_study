@@ -27,6 +27,7 @@ public class BullsAndCowsServer {
 		while (true) {			
 			if (ServerThread.isGameEnd) {
 				System.out.println("게임 종료");
+				server.close();
 				break;
 			}
 		}
@@ -50,7 +51,6 @@ public class BullsAndCowsServer {
 					System.out.println("현재 게임중인 사용자 수: " + player);
 				}
 				try {
-					System.out.println(this.getName());
 					Socket client = server.accept();
 					ServerThread serverThread = new ServerThread(client);
 					serverThread.setDaemon(true);

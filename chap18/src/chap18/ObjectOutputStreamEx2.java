@@ -52,7 +52,7 @@ class User extends UserInfo implements Serializable {
 		out.defaultWriteObject();
 	}
 	
-	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+	private void readObject(ObjectInputStream in) throws IOException, zClassNotFoundException {
 		name = in.readUTF();
 		password = in.readUTF();
 		in.defaultReadObject();

@@ -9,7 +9,7 @@ import java.net.Socket;
 public class BullsAndCowsClient{
 	public static void main(String[] args) {
 		int port = 8012;
-		String ip = "192.168.4.27";
+		String ip = "172.30.1.59";
 		Socket client = null;
 		ServerMessageReader in = null;
 		ServerMessageWriter out = null;
@@ -28,15 +28,11 @@ public class BullsAndCowsClient{
 			System.out.println("server port: " + client.getPort());
 			
 			out.start();
-//			out.join();
-			while(true) {
-				if (br.readLine().equals("Game Over")) {
-					out.stop();
-					break;
-				}
-			}
+			out.join();
 
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
